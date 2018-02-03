@@ -1,2 +1,3 @@
 # TypeScript-Snap
-Snapcraft file for TypeScript
+
+A Snapcraft file for the TypeScript compiler.

@@ -1,6 +1,6 @@
 name: typescript
 version: git
-summary: superset of JavaScript that compiles to clean JavaScript output
+summary: Superset of JavaScript that compiles to clean JavaScript output
 description: |
   TypeScript is a language for application-scale JavaScript. TypeScript adds
   optional types, classes, and modules to JavaScript. TypeScript supports tools
@@ -13,13 +13,22 @@ grade: stable
 # needs arbitrary file access for any compilations
 confinement: classic
 
+# TypeScript isn't meant to be invoked with the command 'typescript'.
+# These entries will install an executables named 'typescript.tsc' and 'typescript.tsserver',
+# each for the respective entries in 'bin'.
+# Once we publish, we'll have also set up an alias for 'tsc' and 'tsserver' respectively'
 apps:
-  typescript:
+  tsc:
     command: tsc
+  tsserver:
+    command: tsserver
 
 parts:
   typescript:
+    # Since our 'source' is based a remote repository (as opposed to local sources),
+    # Snap's build servers will rebuild this package once a day if TypeScript's repo 
+    # has any upstream changes.
     source: https://github.com/Microsoft/TypeScript.git
     plugin: nodejs
     node-packages: [jake]
-    build: jake
+    build: jake LKG

@@ -14,7 +14,7 @@ grade: stable
 confinement: classic
 
 # TypeScript isn't meant to be invoked with the command 'typescript'.
-# These entries will install an executables named 'typescript.tsc' and 'typescript.tsserver',
+# These entries will install executables named 'typescript.tsc' and 'typescript.tsserver',
 # each for the respective entries in 'bin'.
 # Once we publish, we'll have also set up an alias for 'tsc' and 'tsserver' respectively'
 apps:
